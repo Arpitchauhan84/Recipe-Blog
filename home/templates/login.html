@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+
+{% block title %}Receipe - My Website{% endblock %}
+{% block content %}
+
+<body class="bg-dark text-white">
+    <div class="comtainer mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form class="col-8 mx-auto card shadow-lg p-3" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Add_Receipe</h2>
+            <hr>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <p>Don't have account create<a href="/register/" target="_blank" rel="noopener noreferrer">Register</a></p>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+    </div>
+{% endblock %}
